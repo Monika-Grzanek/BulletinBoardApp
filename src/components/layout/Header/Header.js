@@ -1,6 +1,7 @@
+/* eslint-disable linebreak-style */
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import {AppBar, Toolbar, Container, Typography, Button} from '@mui/material';
 import clsx from 'clsx';
 
 // import { connect } from 'react-redux';
@@ -10,9 +11,25 @@ import styles from './Header.module.scss';
 
 const Component = ({className, children}) => (
   <div className={clsx(className, styles.root)}>
-    <h2>Header</h2>
-    {children}
-  </div>
+    <AppBar position="static">
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+          >
+            Bulletin-app
+          </Typography>
+          <Button className={styles.notLogged} variant="outlined">Log in</Button>
+          <Button className={styles.isLogged} variant="outlined">Your posts</Button>
+          <Button className={styles.isLogged} variant="outlined">Log out</Button>
+        </Toolbar>
+      </Container>
+    </AppBar>  
+  
+  </div> 
 );
 
 Component.propTypes = {
